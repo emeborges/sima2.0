@@ -217,6 +217,15 @@ export const Container = styled.div`
                 p{
                     padding:0.3rem 0rem;
                 }
+
+                button{
+                    width:15rem;
+                    margin:1rem;
+                    padding:1rem;
+                    background:${props => props.theme.colors.black};
+                    border:none;
+                    color:${props => props.theme.colors.whrite};
+                }
             }
 
             .line{

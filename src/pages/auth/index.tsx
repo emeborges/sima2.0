@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import useWindowDimensions from '../../units/useWindowDimension'
 
-import { Container } from "../../styles/pages/auth"
+import { Container, Chamada } from "../../styles/pages/auth"
+import Header from '../../components/Header';
+
 
 
 const tools: React.FC = () => {
@@ -13,14 +15,31 @@ const tools: React.FC = () => {
                 <title>Login - SimaCheck</title>
                 <meta name="description" content="" />
             </Head>
+            <Header />
             <Container>
+                <div className="chamadaConteiner">
+                    <Chamada>SUA JORNADA NUNCA MAIS SERÁ A MESMA.</Chamada>
+
+                </div>
+
 
                 <div className="loginConteiner">
-                    <img className="logo" src="https://s3.sa-east-1.amazonaws.com/simacheck.staticimages.prod/Imagens+simacheck2.0/SimacheckLogoHorizontalSvgBranco.svg" alt=""
-                    />
+                    <form>
+                        <div className="inputsConteiner">
+                            <input type="email" name="" id="" placeholder="E-mail" />
+                        </div>
+                        <div className="inputsConteiner">
+                            <input type="password" name="" id="" placeholder="Senha" />
+                        </div>
+                        <div className="linksConteiner">
+                            <a>Esqueci minha senha</a>
+                            <a>Não tem uma conta? <span> Registrar-se</span></a>
+                        </div>
 
-                    <input type='text'>
-                    </input>
+                        <button>ENTRAR</button>
+
+
+                    </form>
                 </div>
 
 

@@ -11,7 +11,9 @@ const theme = {
         borderGrey: '#323238',
         grayBlack: '#737380',
         gray1: '#e1e1e6',
-        backgroundLogin: 'rgb(32, 32, 36)',
+        backgroundLogin: '#3e3e45',
+        filterBackground: 'rgba(18,18,20,0.93)',
+        blackOpacidade6: 'rgba(18,18,20,0.4)',
     }
 }
 

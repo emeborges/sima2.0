@@ -69,7 +69,10 @@ const Header: React.FC = () => {
                     </nav>
 
                     <ul className="conteinerButtons">
-                        <li className='login'>Entrar</li>
+                        <Link href="/auth">
+                            <li className='login'>Entrar</li>
+                        </Link>
+
                         <li className='cadastro'>Cadastrar</li>
                     </ul>
 
