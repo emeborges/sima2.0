@@ -62,3 +62,13 @@ export function Porcentagem(dados: number) {
     return Math.round(dados * 100)
 
 }
+
+export function PluralOuSing(dados: number, txtSing: string, txtPlur: string) {
+    if (dados = 1) {
+        return `${dados} ${txtSing}`
+    } else if (dados > 1) {
+        return `${dados} ${txtPlur}`
+    } else {
+        return null
+    }
+}

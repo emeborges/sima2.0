@@ -137,6 +137,8 @@ export const Container = styled.div`
             .cadastro{
                 border-bottom: 2px solid ${props => props.theme.colors.redAlert};
                 font-size:80%;
+                margin-right:1rem;
+                cursor:pointer;
             }
 
             @media (max-width:600px){

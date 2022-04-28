@@ -36,6 +36,7 @@ export const Container = styled.div`
                     justify-content:space-around;
                 }
 
+
                 button{
                     padding:1rem;
                     border: none;
@@ -53,7 +54,6 @@ export const Container = styled.div`
             }
         }
     }
-
 
     .conteinerDois{
         height:80vh;

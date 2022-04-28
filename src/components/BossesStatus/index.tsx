@@ -1,10 +1,11 @@
 import { Container } from "./style"
 import { color } from "../../units/gerals"
+import { Image } from "@chakra-ui/react"
 
 
 
 
-const BossStatus: React.FC<{ image: string, status: number }> = ({ image, status }) => {
+const BossStatus: React.FC<{ image: string, status: number, width: string, height: string }> = ({ image, status, width, height }) => {
 
     function Chance(status: number) {
         if (status > 0.7) {
@@ -17,17 +18,15 @@ const BossStatus: React.FC<{ image: string, status: number }> = ({ image, status
     }
 
     return (
-        <Container>
+        <Container style={{ width: `${width}`, height: `${height}` }}>
             <div className="alo" style={{ background: `${color(status)}` }}>
                 <div className="fundo">
-                    <img src={image} />
+                    <Image src={image} />
                 </div>
             </div>
             <div className="legenda">
                 <h5>{Chance(status)}</h5>
             </div>
-
-
         </Container>
     )
 }

@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 
 import Centralizer from "../Centralizer"
 import Link from "next/link"
+import { Button, Image } from "@chakra-ui/react"
 
 
 const Header: React.FC = () => {
@@ -14,8 +15,10 @@ const Header: React.FC = () => {
             <Centralizer>
                 <div className='flexRow'>
                     <div className='conteinerLogo'>
-                        <img className="logo" src="https://s3.sa-east-1.amazonaws.com/simacheck.staticimages.prod/Imagens+simacheck2.0/SimacheckLogoHorizontalSvgBranco.svg" alt=""
-                        />
+                        <Link href="/">
+                            <Image cursor={'pointer'} src="https://s3.sa-east-1.amazonaws.com/simacheck.staticimages.prod/Imagens+simacheck2.0/SimacheckLogoHorizontalSvgBranco.svg" alt=""
+                            />
+                        </Link>
                     </div>
 
                     <nav className="conteinerNav">
@@ -69,11 +72,17 @@ const Header: React.FC = () => {
                     </nav>
 
                     <ul className="conteinerButtons">
-                        <Link href="/auth">
-                            <li className='login'>Entrar</li>
-                        </Link>
+                        <li className='cadastro'>
+                            Cadastrar
+                        </li>
 
-                        <li className='cadastro'>Cadastrar</li>
+                        <Link href="/auth">
+                            <li>
+                                <Button color={`${props => props.theme.colors.black}`} _hover={{ color: `${props => props.theme.colors.black}` }} variant='outline'>
+                                    Entrar
+                                </Button>
+                            </li>
+                        </Link>
                     </ul>
 
                 </div>

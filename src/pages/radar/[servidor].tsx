@@ -13,20 +13,19 @@ import HeaderMobile from '../../components/HeaderMobile'
 import { useRouter } from 'next/router'
 import { api } from '../../units/services'
 import Loader from '../../components/Loader'
-import ConteinerLores from '../../components/ConteinerLores'
 import Filters from '../../components/Filters'
 import ConteinerBosses from '../../components/ConteinerBosses'
 import { BossesDetailsProps } from '../../units/types'
+import ConteinerLores from '../../components/ConteinerLores'
 
 
 const tools: React.FC = () => {
     const { width, height } = useWindowDimensions()
-    const [view, setView] = useState('lore')
+    const [view, setView] = useState('status')
     const [bosses, setBosses] = useState([])
     const [dadoFiltrado, setDadoFiltrado] = useState<string>('colour_frame')
     const [bossesOrganizado, setBossesOrganizado] = useState<BossesDetailsProps[]>([])
     const [load, setLoad] = useState(false)
-    const [loader, setLoader] = useState(true)
     const router = useRouter()
     const pid = router.query.servidor
 
@@ -57,7 +56,7 @@ const tools: React.FC = () => {
     }
 
     function sortDrop() {
-        setDadoFiltrado('current_prob')
+        setDadoFiltrado('colour_frame')
         setBossesOrganizado(bosses.sort((a, b) => { return b.colour_frame - a.colour_frame }))
     }
 
@@ -108,6 +107,11 @@ const tools: React.FC = () => {
                                             Tipo de visualização:
                                         </p>
                                         <ul>
+                                            <li className={view === 'status' ? "selecionado" : ""} onClick={() => setView('status')}>
+                                                Status
+                                                <div className={view === 'status' ?
+                                                    "line selected" : "line"} />
+                                            </li>
                                             <li className={view === 'lore' ? "selecionado" : ""} onClick={() => setView('lore')}>
                                                 Lores
                                                 <div className={view === 'lore' ?
@@ -118,23 +122,19 @@ const tools: React.FC = () => {
                                                 <div className={view === 'city' ?
                                                     "line selected" : "line"} />
                                             </li>
-                                            <li className={view === 'status' ? "selecionado" : ""} onClick={() => setView('status')}>
-                                                Status
-                                                <div className={view === 'status' ?
-                                                    "line selected" : "line"} />
-                                            </li>
+
                                         </ul>
                                     </div>
                                     <div className="filters">
-                                        <Filters sortName={sortName} sortDrop={sortDrop} />
+                                        <Filters sortName={sortName} sortDrop={sortDrop} filterOn={dadoFiltrado} />
                                     </div>
 
 
                                 </div>
                             </div>
                             <div className="bossesConteiner">
-                                <ConteinerBosses bosses={bossesOrganizado} />
-
+                                {view === 'status' ? <ConteinerBosses bosses={bossesOrganizado} /> : null}
+                                {view === 'lore' ? <ConteinerLores bosses={bossesOrganizado} /> : null}
                             </div>
 
                         </Centralizer>

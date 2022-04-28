@@ -13,13 +13,28 @@ export const Container = styled.div`
             display:flex;
             justify-content:space-between;
 
+            @media (max-width:600px){
+                flex-wrap:wrap;
+
+            }
+
             .lateral{
                 align-items:center;
                 width: 30%;
+
+                @media (max-width:600px){
+                    width:96%;
+                    margin:0.5rem 0.5rem;
+                }
             }
 
             .central{
                 width: 38%;
+
+                @media (max-width:600px){
+                    width:96%;
+                    margin:0.5rem 0.5rem;
+                }
             }
 
             .infosServer{

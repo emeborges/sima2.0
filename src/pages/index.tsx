@@ -10,6 +10,7 @@ import { useState } from 'react'
 import Footer from '../components/Footer'
 import HeaderMobile from '../components/HeaderMobile'
 import useWindowDimensions from '../units/useWindowDimension'
+import { Button } from '@chakra-ui/react'
 
 const Home: React.FC = () => {
     const [conteinerNum, setConteinerNum] = useState<number>(2)
@@ -42,7 +43,6 @@ const Home: React.FC = () => {
                                 <button>
                                     SimaBosses
                                 </button>
-
                             </Link>
                             <Link href=''>
                                 <button>

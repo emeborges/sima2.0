@@ -1,40 +1,126 @@
-import { Container } from "./style"
 import { BossesDetailsProps } from '../../units/types'
 import BossStatus from "../BossesStatus"
 import { Porcentagem } from "../../units/gerals"
+import { Button, Flex, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stat, StatArrow, StatHelpText, StatLabel, StatNumber, Text, useDisclosure } from "@chakra-ui/react"
+import ModalDetailsBoss from '../ModalDetailsBoss'
+import { useState } from 'react'
 
 
 
 const ConteinerBosses: React.FC<{ bosses: BossesDetailsProps[] }> = ({ bosses }) => {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const [clickedBoss, setClickedBoss] = useState({})
 
-    console.log(bosses)
+    function openModal(boss) {
+        setClickedBoss(boss)
+        onOpen()
+    }
 
     return (
-        <Container>
+        <Flex wrap={'wrap'} justify={'space-between'}>
             {bosses?.map((boss =>
-                <div className="box">
-                    <BossStatus image={boss.image_url} status={boss.colour_frame} />
+                <>
+                    <Flex
+                        shadow={'0 1px 5px 0 rgb(0 0 0 / 10%), 0 1px 5px 0 rgb(0 0 0 / 6%)'}
+                        m={'0.25rem'}
+                        w={{ base: '100%', md: '48%', lg: '18rem' }}
+                        h={'6rem'}
+                        align={'center'}
+                        cursor={'pointer'}
+                        onClick={() => openModal(boss)}
+                    >
+                        <BossStatus
+                            width='5rem'
+                            height='5rem'
+                            image={boss.image_url}
+                            status={boss.colour_frame}
+                        />
+                        <Flex
+                            minW={'70%'}
+                            maxW={'70%'}
+                            direction={'column'}
+                        >
+                            <Flex
+                                direction={'column'}
+                            >
+                                <Text
+                                    fontSize='lg'
+                                    minW={'100%'}
+                                    as={'span'}
+                                    isTruncated
+                                    position={'relative'}
+                                    _after={{
+                                        content: "''",
+                                        width: '10%',
+                                        height: '10%',
+                                        position: 'absolute',
+                                        bottom: 0.5,
+                                        left: 0,
+                                        bg: '#BA1813',
+                                        zIndex: -1,
+                                    }}
+                                >
+                                    {boss.display_name}
+                                </Text>
+                                <Text
+                                    fontSize='xs'
+                                >
+                                    {boss.lore}
+                                </Text>
+                            </Flex>
+                            <Flex>
 
-                    <div className="dadosBoss">
-                        <div className="title">
-                            <h4>
-                                {boss.boss}
-                            </h4>
-                            <h6>{boss.lore}</h6>
-                        </div>
-                        <div className="infos">
-                            <h4><span>Chance Calculada</span>{Porcentagem(boss.current_prob)}%</h4>
-                            <h4><span>Chance Projetada</span>{Porcentagem(boss.colour_frame)}%</h4>
-                        </div>
-                        <div className="links">
-                            <a>Ver informações detalhadas</a>
-                        </div>
-                    </div>
-                </div>))}
+                            </Flex>
+                            <Flex
+                                justify={'s'}
+                                width={'100%'}
+                            >
+                                <Stat>
+                                    <StatLabel
+                                        fontSize={'80%'}
+                                    >
+                                        Resp 1:
+                                    </StatLabel>
+                                    <StatHelpText>
+                                        <StatArrow type={boss.colour_frame > 0.5 ? 'increase' : 'decrease'} />
+                                        {Porcentagem(boss.current_prob)}%
+                                    </StatHelpText>
+                                </Stat>
+                                <Stat >
+                                    <StatLabel fontSize={'80%'}>Chance:</StatLabel>
+                                    <StatHelpText>
+                                        <StatArrow type={boss.colour_frame > 0.5 ? 'increase' : 'decrease'} />
+                                        {Porcentagem(boss.current_prob)}%
+                                    </StatHelpText>
+                                </Stat>
+                                <Stat >
+                                    <StatLabel fontSize={'80%'}>Chance:</StatLabel>
+                                    <StatHelpText>
+                                        <StatArrow type={boss.colour_frame > 0.5 ? 'increase' : 'decrease'} />
+                                        {Porcentagem(boss.current_prob)}%
+                                    </StatHelpText>
+                                </Stat>
+                                <Stat >
+                                    <StatLabel fontSize={'80%'}>Chance:</StatLabel>
+                                    <StatHelpText>
+                                        <StatArrow type={boss.colour_frame > 0.5 ? 'increase' : 'decrease'} />
+                                        {Porcentagem(boss.current_prob)}%
+                                    </StatHelpText>
+                                </Stat>
+                            </Flex>
+                        </Flex>
+                    </Flex>
+                </>
+            ))
+            }
+
+            <ModalDetailsBoss boss={clickedBoss} isOpen={isOpen} onClose={onClose} />
 
 
 
-        </Container>
+
+
+        </Flex >
     )
 }
 
