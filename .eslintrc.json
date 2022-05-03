@@ -2,7 +2,7 @@
     "env": {
         "browser": true,
         "es2021": true,
-        "node":true,
+        "node": true,
         "jest": true
     },
     "extends": [
@@ -23,12 +23,11 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint",
         "prettier"
     ],
     "rules": {
         "prettier/prettier": "error",
-        "space-before-function-paren":"off",
-        "react/prop-types":"off"
+        "space-before-function-paren": "off",
+        "react/prop-types": "off"
     }
 }
