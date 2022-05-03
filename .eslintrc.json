@@ -8,6 +8,7 @@
     "extends": [
         "plugin:react/recommended",
         "standard",
+        "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "prettier/@typescript-eslint",
         "prettier/standart",
@@ -23,7 +24,8 @@
     },
     "plugins": [
         "react",
-        "prettier"
+        "prettier",
+        "@typescript-eslint"
     ],
     "rules": {
         "prettier/prettier": "error",
