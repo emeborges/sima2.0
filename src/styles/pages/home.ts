@@ -37,20 +37,7 @@ export const Container = styled.div`
                 }
 
 
-                button{
-                    padding:1rem;
-                    border: none;
-                    color:${props => props.theme.colors.whrite};
-                    background-color:${props => props.theme.colors.black};
-                    box-shadow: 0px 0px 20px ${props => props.theme.colors.darkShadow};
-                    cursor: pointer;
-                    border-radius:5px;
 
-                    @media only screen and (max-width: 600px) {
-                        margin-top:1rem;
-                    }
-
-                }
             }
         }
     }
@@ -177,13 +164,17 @@ export const Container = styled.div`
 
             .conteinerConteudo{
                 min-width:80%;
+                max-width:80%;
                 border-bottom-right-radius: 5px;
                 border-bottom-left-radius: 5px;
+
                 border: 1px solid ${props => props.theme.colors.borderGrey};
 
-                @media only screen and (max-width: 600px) {
-                    width:97%;
+                @media (max-width: 600px) {
                     margin:0 auto;
+                    min-width:97%;
+                max-width:97%;
+
                 }
             }
         }
@@ -191,7 +182,7 @@ export const Container = styled.div`
 
     .conteinerQuatro{
         margin:0 auto;
-        height:50vh;
+        height:100%;
 
         .conteinerInLine{
             display:flex;
@@ -218,14 +209,7 @@ export const Container = styled.div`
                     padding:0.3rem 0rem;
                 }
 
-                button{
-                    width:15rem;
-                    margin:1rem;
-                    padding:1rem;
-                    background:${props => props.theme.colors.black};
-                    border:none;
-                    color:${props => props.theme.colors.whrite};
-                }
+
             }
 
             .line{

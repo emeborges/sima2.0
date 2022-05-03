@@ -10,7 +10,16 @@ import { useState } from 'react'
 import Footer from '../components/Footer'
 import HeaderMobile from '../components/HeaderMobile'
 import useWindowDimensions from '../units/useWindowDimension'
-import { Button } from '@chakra-ui/react'
+import { Button, Flex, Heading, Image, List, ListIcon, ListItem, Text } from '@chakra-ui/react'
+
+import { GiRadarSweep, GiCalculator } from 'react-icons/gi'
+import { IoTimerOutline, IoLibraryOutline } from 'react-icons/io5'
+import HomeSimaBossesText from '../components/HomeSimaBossesText/SimaBosses'
+import HomeSimaCalcText from '../components/HomeSimaBossesText/SimaCalc'
+import HomeSimaTimer from '../components/HomeSimaBossesText/SimaTimer'
+import HomeSimaLibrary from '../components/HomeSimaBossesText/SimaLibrary'
+
+
 
 const Home: React.FC = () => {
     const [conteinerNum, setConteinerNum] = useState<number>(2)
@@ -20,7 +29,6 @@ const Home: React.FC = () => {
     }
 
     const { width, height } = useWindowDimensions();
-    console.log(height)
 
     return (
         <Container>
@@ -39,26 +47,62 @@ const Home: React.FC = () => {
                         <p>Conheça-as agora!</p>
 
                         <div className='conteinerBtns'>
-                            <Link href=''>
-                                <button>
-                                    SimaBosses
-                                </button>
-                            </Link>
-                            <Link href=''>
-                                <button>
-                                    SimaCalc
-                                </button>
-                            </Link>
-                            <Link href=''>
-                                <button>
-                                    SimaTimer
-                                </button>
-                            </Link>
-                            <Link href=''>
-                                <button >
-                                    SimaLibrary
-                                </button>
-                            </Link>
+                            <Button
+                                mt={'0.5rem'}
+                                bg={'#e1e1e6'}
+                                w={'10rem'}
+                                h={'5rem'}
+                                p={'0.5rem'}
+                                display={'flex'}
+                                flexDir={'column'}
+                                justifyContent={'space-around'}
+                                _hover={{ bg: '#737380' }}
+                            >
+                                <GiRadarSweep style={{ height: '2rem', width: '2rem' }} />
+                                SimaBosses
+                            </Button>
+                            <Button
+                                mt={'0.5rem'}
+                                bg={'#e1e1e6'}
+                                w={'10rem'}
+                                h={'5rem'}
+                                p={'0.5rem'}
+                                display={'flex'}
+                                flexDir={'column'}
+                                justifyContent={'space-around'}
+                                _hover={{ bg: '#737380' }}
+                            >
+                                <GiCalculator style={{ height: '2rem', width: '2rem' }} />
+                                SimaCalculadora
+                            </Button>
+                            <Button
+                                mt={'0.5rem'}
+                                bg={'#e1e1e6'}
+                                w={'10rem'}
+                                h={'5rem'}
+                                p={'0.5rem'}
+                                display={'flex'}
+                                flexDir={'column'}
+                                justifyContent={'space-around'}
+                                _hover={{ bg: '#737380' }}
+                            >
+                                <IoTimerOutline style={{ height: '2rem', width: '2rem' }} />
+                                SimaTimer
+                            </Button>
+                            <Button
+                                mt={'0.5rem'}
+                                bg={'#e1e1e6'}
+                                w={'10rem'}
+                                h={'5rem'}
+                                p={'0.5rem'}
+                                display={'flex'}
+                                flexDir={'column'}
+                                justifyContent={'space-around'}
+                                _hover={{ bg: '#737380' }}
+                            >
+                                <IoLibraryOutline style={{ height: '2rem', width: '2rem' }} />
+                                SimaLibrary
+                            </Button>
                         </div>
                     </div>
                 </Centralizer>
@@ -95,10 +139,10 @@ const Home: React.FC = () => {
                             </button>
                         </div>
                         <div className='conteinerConteudo'>
-                            {conteinerNum == 1 ? <p>O sima bosses conteúdo....</p> : null}
-                            {conteinerNum == 2 ? <p>O sima calc conteúdo....</p> : null}
-                            {conteinerNum == 3 ? <p>O sima timer conteúdo....</p> : null}
-                            {conteinerNum == 4 ? <p>O sima journal ....</p> : null}
+                            {conteinerNum == 1 ? <HomeSimaBossesText /> : null}
+                            {conteinerNum == 2 ? <HomeSimaCalcText /> : null}
+                            {conteinerNum == 3 ? <HomeSimaTimer /> : null}
+                            {conteinerNum == 4 ? <HomeSimaLibrary /> : null}
                         </div>
                     </div>
                 </Centralizer>
@@ -112,9 +156,9 @@ const Home: React.FC = () => {
                             <h2>SimaGuild ou SimaEquipe?!</h2>
                             <p>Chegamos aqui não tão só, tudo aqui foi na base da raça e do KS em hunt!</p>
 
-                            <button className='btns' >
-                                Conheça a nossa equipe!
-                            </button>
+                            <Button mt={'1rem'} w={'20rem'} bg={'#121214'} color={'#fff'} _hover={{ color: '#121214', bg: '#fff', border: '1px solid #121214' }}>
+                                Conheça nossa equipe!
+                            </Button>
                         </div>
                         <div className='line' />
                         <div className='conteinerTxt'>
@@ -122,9 +166,9 @@ const Home: React.FC = () => {
                             <h2>Como funciona, o que é DLD, quando aparece?!</h2>
                             <p>Já que as informações não são poucas, fizemos um guia ideal para você entender todos os relatórios</p>
 
-                            <button className='btns' >
-                                Veja ai!
-                            </button>
+                            <Button mt={'1rem'} w={'20rem'} bg={'#121214'} color={'#fff'} _hover={{ color: '#121214', bg: '#fff', border: '1px solid #121214' }}>
+                                Saiba mais
+                            </Button>
                         </div>
                     </div>
                 </Centralizer>

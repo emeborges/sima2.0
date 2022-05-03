@@ -31,14 +31,14 @@ const tools: React.FC = () => {
 
     useEffect(() => {
         if (pid) {
-            getLoresInfos(pid)
+            getBossesInfos(pid)
 
         } else {
             setLoad(true)
         }
     }, [pid]);
 
-    async function getLoresInfos(server) {
+    async function getBossesInfos(server) {
         try {
             const { data } = await api.get(`server/${server}`)
             setBosses(data)
